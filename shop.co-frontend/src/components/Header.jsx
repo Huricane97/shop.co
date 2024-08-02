@@ -8,9 +8,9 @@ const Header = () => {
   return (
     <header className="bg-white-500 text-black p-4">
         <div className='flex flex-row justify-between items-center'>
-            <img src={logo} alt='Logo'/>
+            <a href='/'><img src={logo} alt='Logo'/></a>
             <nav className='flex flex-row gap-[20px] font-medium'>
-                <a href='#'>Shop</a>
+                <a href='/Shop'>Shop</a>
                 <a href='#'>On Sale</a>
                 <a href='#'>New Arrivals</a>
                 <a href='#'>Brands</a>
