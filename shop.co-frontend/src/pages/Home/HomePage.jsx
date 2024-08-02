@@ -7,26 +7,26 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 
-import logo1 from "../assets/logo1.png";
-import logo2 from "../assets/logo2.png";
-import logo3 from "../assets/logo3.png";
-import logo4 from "../assets/logo4.png";
-import logo5 from "../assets/logo5.png";
+import logo1 from "../../assets/logo1.png";
+import logo2 from "../../assets/logo2.png";
+import logo3 from "../../assets/logo3.png";
+import logo4 from "../../assets/logo4.png";
+import logo5 from "../../assets/logo5.png";
 
-import img1 from "../assets/Frame 32.png";
-import img2 from "../assets/Frame 33.png";
-import img3 from "../assets/Frame 34.png";
-import img4 from "../assets/Frame 38.png";
+import img1 from "../../assets/Frame 32.png";
+import img2 from "../../assets/Frame 33.png";
+import img3 from "../../assets/Frame 34.png";
+import img4 from "../../assets/Frame 38.png";
 
-import img5 from "../assets/Frame 32 (1).png";
-import img6 from "../assets/Frame 33 (1).png";
-import img7 from "../assets/Frame 34 (1).png";
-import img8 from "../assets/Frame 38 (1).png";
+import img5 from "../../assets/Frame 32 (1).png";
+import img6 from "../../assets/Frame 33 (1).png";
+import img7 from "../../assets/Frame 34 (1).png";
+import img8 from "../../assets/Frame 38 (1).png";
 
-import img9 from "../assets/Frame 61.png";
-import img10 from "../assets/Frame 62 (1).png";
-import img11 from "../assets/Frame 63.png";
-import img12 from "../assets/Frame 64.png";
+import img9 from "../../assets/Frame 61.png";
+import img10 from "../../assets/Frame 62 (1).png";
+import img11 from "../../assets/Frame 63.png";
+import img12 from "../../assets/Frame 64.png";
 
 const HomePage = () => {
 
@@ -40,7 +40,7 @@ const HomePage = () => {
     <>
       <div className="p-4 bg-[url('../assets/bg.png')] bg-no-repeat bg-cover h-[663px] flex  items-center">
         <div className="flex flex-col w-[40%] justify-center gap-4 pl-[50px]">
-          <h2 className="text-6xl font-semibold">FIND CLOTHES THAT MATCHES YOUR STYLE</h2>
+        <h2>FIND CLOTHES THAT MATCHES YOUR STYLE</h2>
           <p>
             Browse through our diverse range of meticulously crafted garments,
             designed to bring out your individuality and cater to your sense of
@@ -62,7 +62,7 @@ const HomePage = () => {
 
       <div className="p-4  flex justify-center items-center">
         <div className="flex flex-col justify-center gap-4 items-center w-[80%] py-[40px]">
-          <h2 className="text-4xl font-semibold">New Arrivals</h2>
+        <h2>New Arrivals</h2>
 
           <div className="flex flex-row justify-between w-full">
           <div className="flex flex-col items-start hover:cursor-pointer" onClick={onproductClick}>
@@ -124,7 +124,7 @@ const HomePage = () => {
 
       <div className="p-4  flex justify-center items-center">
         <div className="flex flex-col justify-center gap-4 items-center w-[80%] py-[40px]">
-          <h2 className="text-4xl font-semibold">top selling</h2>
+        <h2>top selling</h2>
 
           <div className="flex flex-row justify-between w-full">
           <div className="flex flex-col items-start hover:cursor-pointer" onClick={onproductClick}>
@@ -186,7 +186,7 @@ const HomePage = () => {
 
       <div className="p-4  flex justify-center items-center ">
         <div className="flex flex-col bg-gray-100 justify-center gap-4 items-center w-[80%] rounded-2xl p-[50px]">
-          <h2 className="text-4xl font-semibold">BROWSE BY dress STYLE</h2>
+        <h2>BROWSE BY dress STYLE</h2>
 
           <div className="flex flex-col w-full gap-4 p-5">
             <div className="flex flex-row w-full gap-2">
@@ -212,7 +212,7 @@ const HomePage = () => {
 
       <div className="p-4  flex justify-center items-center">
         <div className="flex flex-col gap-4  w-[80%]">
-          <h2 className="text-4xl font-semibold">OUR HAPPY CUSTOMERS</h2>
+        <h2>OUR HAPPY CUSTOMERS</h2>
 
           <div className="flex flex-col p-4 border rounded-2xl w-1/4">
               <div>

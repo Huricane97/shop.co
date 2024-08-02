@@ -22,7 +22,7 @@ const Header = () => {
             </div>
             <div className='flex flex-row gap-3'>
                 <FontAwesomeIcon className='text-xl' icon={faShoppingCart} />
-                <FontAwesomeIcon className='text-xl' icon={faUser} />
+                <a href='/Login'><FontAwesomeIcon className='text-xl' icon={faUser} /></a>
             </div>
         </div>
     </header>
