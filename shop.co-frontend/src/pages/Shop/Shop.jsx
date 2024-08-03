@@ -1,82 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import img1 from "../../assets/Frame 32.png";
-import img2 from "../../assets/Frame 33.png";
-import img3 from "../../assets/Frame 34.png";
-import img4 from "../../assets/Frame 38.png";
 
 const Shop = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [data, setData] = useState(null);
 
-    const onproductClick = () =>{
-        navigate('/ProductDetail');
-    }
+  useEffect(() => {
+    fetch('http://localhost:4000/products/')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+
+  const onProductClick = (productId) => {
+    navigate(`/ProductDetail/${productId}`);
+  }
+
+  if (!data) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <>
-      <div className="p-4  flex justify-center items-center">
-        <div className="flex flex-col justify-center gap-4 items-center w-[80%] py-[40px]">
-        <h2>Shop</h2>
-
-          <div className="flex flex-row justify-between w-full">
-            <div className="flex flex-col items-start hover:cursor-pointer" onClick={onproductClick}>
-              <img src={img1} alt="logo" />
-              <h3 className="font-bold">T-Shirt with tape details</h3>
-              <div>
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-              </div>
-
-              <h3 className="font-bold">$120</h3>
+    <div className="p-4 flex justify-center items-center my-5">
+        <div className="flex flex-col justify-center gap-4 items-center w-[80%] py-[40px] ">
+            <h2>Shop</h2>
+            <div className="flex flex-wrap justify-between w-full">
+                {data.map((product, index) => (
+                    <div
+                        key={index}
+                        className="flex flex-col items-start hover:cursor-pointer m-4 bg-gray-200 w-[22%] h-[300px] p-2"
+                        onClick={() => onProductClick(product.id)}
+                    >
+                        <img src={product.imageUrl} alt={product.name} className="w-full h-[60%] object-cover" />
+                        <h3 className="font-bold mt-2">{product.title}</h3>
+                        <div className="flex mt-1">
+                            <FontAwesomeIcon icon="fa-solid fa-star" />
+                            <FontAwesomeIcon icon="fa-solid fa-star" />
+                            <FontAwesomeIcon icon="fa-solid fa-star" />
+                            <FontAwesomeIcon icon="fa-solid fa-star" />
+                            <FontAwesomeIcon icon="fa-solid fa-star" />
+                        </div>
+                        <h3 className="font-bold mt-2">${product.price}</h3>
+                    </div>
+                ))}
             </div>
-            <div className="flex flex-col items-start hover:cursor-pointer" onClick={onproductClick}>
-              <img src={img2} alt="logo" />
-              <h3 className="font-bold">T-Shirt with tape details</h3>
-              <div>
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-regular fa-star" />
-                <FontAwesomeIcon icon="fa-regular fa-star" />
-              </div>
-              <h3 className="font-bold">$120</h3>
-            </div>
-            <div className="flex flex-col items-start hover:cursor-pointer" onClick={onproductClick}>
-              <img src={img3} alt="logo" />
-              <h3 className="font-bold">T-Shirt with tape details</h3>
-              <div>
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-regular fa-star" />
-              </div>
-              <h3 className="font-bold">$120</h3>
-            </div>
-            <div className="flex flex-col items-start hover:cursor-pointer" onClick={onproductClick}>
-              <img src={img4} alt="logo" />
-              <h3 className="font-bold">T-Shirt with tape details</h3>
-              <div>
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-solid fa-star" />
-                <FontAwesomeIcon icon="fa-regular fa-star" />
-              </div>
-              <h3 className="font-bold">$120</h3>
-            </div>
-          </div>
-
-
         </div>
-      </div>
-    </>
-  )
+    </div>
+);
 }
 
-export default Shop
+export default Shop;
