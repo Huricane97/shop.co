@@ -1,32 +1,19 @@
-const fs = require('fs');
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 
-const data = JSON.parse(fs.readFileSync("./data.json", 'utf-8'));
 const server = express();
 server.use(cors());
 
-// Root route
-server.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the API' });
-});
+const productRouter = require('./routes/products.js')
+const userRouter = require('./routes/users.js')
 
-// Products route
-server.get('/products', (req, res) => {
-  res.json(data.products);
-});
-
-// Single product route
-server.get('/products/:id', (req, res) => {
-  const product = data.products.find(p => p.id === parseInt(req.params.id));
-  if (product) {
-    res.json(product);
-  } else {
-    res.status(404).send('Product not found');
-  }
-});
+server.use('/products', productRouter.routes)
+server.use('/users', userRouter.routes)
 
 // Start server
-server.listen(4000, () => {
+server.listen(process.env.PORT, () => {
   console.log('Server is running on port 4000');
+  console.log(process.env);
 });

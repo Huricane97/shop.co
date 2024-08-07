@@ -30,10 +30,10 @@ const Shop = () => {
                 {data.map((product, index) => (
                     <div
                         key={index}
-                        className="flex flex-col items-start hover:cursor-pointer m-4 bg-gray-200 w-[22%] h-[300px] p-2"
+                        className="flex flex-col items-start hover:cursor-pointer m-4 bg-gray-200 w-[22%] h-[400px] p-2"
                         onClick={() => onProductClick(product.id)}
                     >
-                        <img src={product.imageUrl} alt={product.name} className="w-full h-[60%] object-cover" />
+                        <img src={product.images[0]} alt={product.name} className="w-full h-[60%] object-cover" />
                         <h3 className="font-bold mt-2">{product.title}</h3>
                         <div className="flex mt-1">
                             <FontAwesomeIcon icon="fa-solid fa-star" />
