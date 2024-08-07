@@ -14,6 +14,13 @@ const Shop = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
+  const truncateTitle = (title, limit) => {
+    if (title.length > limit) {
+      return title.substring(0, limit) + '...';
+    }
+    return title;
+  };
+
   const onProductClick = (productId) => {
     navigate(`/ProductDetail/${productId}`);
   }
@@ -34,13 +41,15 @@ const Shop = () => {
                         onClick={() => onProductClick(product.id)}
                     >
                         <img src={product.images[0]} alt={product.name} className="w-full h-[60%] object-cover" />
-                        <h3 className="font-bold mt-2">{product.title}</h3>
-                        <div className="flex mt-1">
-                            <FontAwesomeIcon icon="fa-solid fa-star" />
-                            <FontAwesomeIcon icon="fa-solid fa-star" />
-                            <FontAwesomeIcon icon="fa-solid fa-star" />
-                            <FontAwesomeIcon icon="fa-solid fa-star" />
-                            <FontAwesomeIcon icon="fa-solid fa-star" />
+                        <h3 className="font-bold mt-2">{truncateTitle(product.title, 12)}
+                        </h3>
+                        <div>
+                          {[...Array(Math.round(product.rating))].map((_, i) => (
+                            <FontAwesomeIcon key={i} className="text-amber-500" icon="fa-solid fa-star" />
+                          ))}
+                          {[...Array(5 - Math.round(product.rating))].map((_, i) => (
+                            <FontAwesomeIcon key={i + Math.round(product.rating)} className="text-amber-500" icon="fa-regular fa-star" />
+                          ))}
                         </div>
                         <h3 className="font-bold mt-2">${product.price}</h3>
                     </div>

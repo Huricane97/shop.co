@@ -45,7 +45,7 @@ const ProductDetail = () => {
                 <FontAwesomeIcon key={i} className="text-amber-500" icon="fa-solid fa-star" />
               ))}
               {[...Array(5 - Math.round(data.rating))].map((_, i) => (
-                <FontAwesomeIcon key={i + Math.round(data.rating)} className="text-amber-500" icon="fa-solid fa-star-o" />
+                <FontAwesomeIcon key={i + Math.round(data.rating)} className="text-amber-500" icon="fa-regular fa-star" />
               ))}
             </div>
             <h2>${data.price} <span className="text-gray-400 line-through">${(data.price / (1 - data.discountPercentage / 100)).toFixed(2)}</span></h2>

@@ -3,6 +3,16 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
+
+const mongoose = require('mongoose');
+
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb+srv://mabdullahkhan13:LfvQTsWQiwnTOE52@cluster0.cys5sko.mongodb.net/shop');
+  console.log("db connected")
+}
+
 const server = express();
 server.use(cors());
 
