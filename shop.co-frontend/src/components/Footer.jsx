@@ -64,7 +64,7 @@ const Footer = () => {
 
         <div className="flex flex-row items-center justify-between w-[80%]">
             <div>Shop.co © 2000-2023, All Rights Reserved</div>
-            <div><img src={payment}/></div>
+            <div><img src={payment} alt="img"/></div>
         </div>
 
       </div>

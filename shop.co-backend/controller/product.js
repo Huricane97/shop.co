@@ -21,3 +21,17 @@ exports.singleProduct = async (req, res) => {
         res.status(500).send(err.message);
     }
 };
+
+exports.createProducts = async (req, res) => {
+    try {
+        const productData = req.body;
+        console.log('Received data:', productData);  // Log the received data
+        const newProduct = new Product(productData);
+        await newProduct.save();
+        console.log('Product saved:', newProduct);  // Log the saved product
+        res.status(201).json(newProduct);
+      } catch (error) {
+        console.error('Error creating product:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+};
